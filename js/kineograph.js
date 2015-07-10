@@ -102,13 +102,15 @@
             src = image;
             image = new Image();
             image.src = src;
+            // first attemp with ugly hack…
+            // image.src = src + '?' + new Date().getTime();
           }
           this._images.push(image);
-          if (!(image.getContext || image.complete)) {
+          // if (!(image.getContext || image.complete)) {
             this._loadCount++;
             this.complete = false;
             image.onload = this._handleImageLoad;
-          }
+          // }
         }
       }
       if (data.frames instanceof Array) {
